@@ -1,0 +1,944 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "gnetId": null,
+  "graphTooltip": 0,
+  "iteration": 1627921550625,
+  "links": [],
+  "panels": [
+    {
+      "datasource": "cloudwatch",
+      "description": "The number of healthy instances registered with your load balancer. A newly registered instance is considered healthy after it passes the first health check. If cross-zone load balancing is enabled, the number of healthy instances for the LoadBalancerName dimension is calculated across all Availability Zones. Otherwise, it is calculated per Availability Zone.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "targets": [
+        {
+          "alias": "{{LoadBalancerName}} min",
+          "dimensions": {
+            "LoadBalancerName": "$elb"
+          },
+          "expression": "",
+          "id": "",
+          "matchExact": true,
+          "metricName": "HealthyHostCount",
+          "namespace": "AWS/ELB",
+          "period": "",
+          "queryType": "randomWalk",
+          "refId": "A",
+          "region": "default",
+          "statistics": [
+            "Minimum"
+          ]
+        },
+        {
+          "alias": "{{LoadBalancerName}} avg",
+          "dimensions": {
+            "LoadBalancerName": "$elb"
+          },
+          "expression": "",
+          "hide": false,
+          "id": "",
+          "matchExact": true,
+          "metricName": "HealthyHostCount",
+          "namespace": "AWS/ELB",
+          "period": "",
+          "queryType": "randomWalk",
+          "refId": "B",
+          "region": "default",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "{{LoadBalancerName}} max",
+          "dimensions": {
+            "LoadBalancerName": "$elb"
+          },
+          "expression": "",
+          "hide": false,
+          "id": "",
+          "matchExact": true,
+          "metricName": "HealthyHostCount",
+          "namespace": "AWS/ELB",
+          "period": "",
+          "queryType": "randomWalk",
+          "refId": "C",
+          "region": "default",
+          "statistics": [
+            "Maximum"
+          ]
+        }
+      ],
+      "title": "HealthyHostCount",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": "cloudwatch",
+      "description": "The number of unhealthy instances registered with your load balancer. An instance is considered unhealthy after it exceeds the unhealthy threshold configured for health checks. An unhealthy instance is considered healthy again after it meets the healthy threshold configured for health checks.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 9
+      },
+      "id": 9,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "targets": [
+        {
+          "alias": "{{LoadBalancerName}} min",
+          "dimensions": {
+            "LoadBalancerName": "$elb"
+          },
+          "expression": "",
+          "id": "",
+          "matchExact": true,
+          "metricName": "UnHealthyHostCount",
+          "namespace": "AWS/ELB",
+          "period": "",
+          "queryType": "randomWalk",
+          "refId": "A",
+          "region": "default",
+          "statistics": [
+            "Minimum"
+          ]
+        },
+        {
+          "alias": "{{LoadBalancerName}} avg",
+          "dimensions": {
+            "LoadBalancerName": "$elb"
+          },
+          "expression": "",
+          "hide": false,
+          "id": "",
+          "matchExact": true,
+          "metricName": "UnHealthyHostCount",
+          "namespace": "AWS/ELB",
+          "period": "",
+          "queryType": "randomWalk",
+          "refId": "B",
+          "region": "default",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "{{LoadBalancerName}} max",
+          "dimensions": {
+            "LoadBalancerName": "$elb"
+          },
+          "expression": "",
+          "hide": false,
+          "id": "",
+          "matchExact": true,
+          "metricName": "UnHealthyHostCount",
+          "namespace": "AWS/ELB",
+          "period": "",
+          "queryType": "randomWalk",
+          "refId": "C",
+          "region": "default",
+          "statistics": [
+            "Maximum"
+          ]
+        }
+      ],
+      "title": "UnHealthyHostCount",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": "cloudwatch",
+      "description": "[HTTP listener] The total time elapsed, in seconds, from the time the load balancer sent the request to a registered instance until the instance started to send the response headers.\n\n[TCP listener] The total time elapsed, in seconds, for the load balancer to successfully establish a connection to a registered instance.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "s"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 18
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "targets": [
+        {
+          "alias": "{{LoadBalancerName}} average",
+          "dimensions": {
+            "LoadBalancerName": "$elb"
+          },
+          "expression": "",
+          "id": "",
+          "matchExact": true,
+          "metricName": "Latency",
+          "namespace": "AWS/ELB",
+          "period": "",
+          "queryType": "randomWalk",
+          "refId": "A",
+          "region": "default",
+          "statistics": [
+            "Average"
+          ]
+        },
+        {
+          "alias": "{{LoadBalancerName}} max",
+          "dimensions": {
+            "LoadBalancerName": "$elb"
+          },
+          "expression": "",
+          "hide": false,
+          "id": "",
+          "matchExact": true,
+          "metricName": "Latency",
+          "namespace": "AWS/ELB",
+          "period": "",
+          "queryType": "randomWalk",
+          "refId": "B",
+          "region": "default",
+          "statistics": [
+            "Maximum"
+          ]
+        }
+      ],
+      "title": "Latency",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": "cloudwatch",
+      "description": "The number of requests completed or connections made during the specified interval (1 or 5 minutes).\n\n[HTTP listener] The number of requests received and routed, including HTTP error responses from the registered instances.\n\n[TCP listener] The number of connections made to the registered instances.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "requests",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 27
+      },
+      "id": 4,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "targets": [
+        {
+          "alias": "{{LoadBalancerName}} sum",
+          "dimensions": {
+            "LoadBalancerName": "$elb"
+          },
+          "expression": "",
+          "id": "",
+          "matchExact": true,
+          "metricName": "RequestCount",
+          "namespace": "AWS/ELB",
+          "period": "",
+          "queryType": "randomWalk",
+          "refId": "A",
+          "region": "default",
+          "statistics": [
+            "Sum"
+          ]
+        }
+      ],
+      "title": "RequestCount",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": "cloudwatch",
+      "description": "The total number of requests (HTTP listener) or connections (TCP listener) that are pending routing to a healthy instance. The maximum size of the queue is 1,024. Additional requests or connections are rejected when the queue is full. For more information, see SpilloverCount.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "requests",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 36
+      },
+      "id": 5,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "targets": [
+        {
+          "alias": "{{LoadBalancerName}} max",
+          "dimensions": {
+            "LoadBalancerName": "$elb"
+          },
+          "expression": "",
+          "id": "",
+          "matchExact": true,
+          "metricName": "SurgeQueueLength",
+          "namespace": "AWS/ELB",
+          "period": "",
+          "queryType": "randomWalk",
+          "refId": "A",
+          "region": "default",
+          "statistics": [
+            "Maximum"
+          ]
+        },
+        {
+          "alias": "{{LoadBalancerName}} avg",
+          "dimensions": {
+            "LoadBalancerName": "$elb"
+          },
+          "expression": "",
+          "hide": false,
+          "id": "",
+          "matchExact": true,
+          "metricName": "SurgeQueueLength",
+          "namespace": "AWS/ELB",
+          "period": "",
+          "queryType": "randomWalk",
+          "refId": "B",
+          "region": "default",
+          "statistics": [
+            "Average"
+          ]
+        }
+      ],
+      "title": "SurgeQueueCount",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": "cloudwatch",
+      "description": "The total number of requests that were rejected because the surge queue is full.\n\n[HTTP listener] The load balancer returns an HTTP 503 error code.\n\n[TCP listener] The load balancer closes the connection.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "requests",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 45
+      },
+      "id": 6,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "targets": [
+        {
+          "alias": "{{LoadBalancerName}} sum",
+          "dimensions": {
+            "LoadBalancerName": "$elb"
+          },
+          "expression": "",
+          "id": "",
+          "matchExact": true,
+          "metricName": "SpilloverCount",
+          "namespace": "AWS/ELB",
+          "period": "",
+          "queryType": "randomWalk",
+          "refId": "A",
+          "region": "default",
+          "statistics": [
+            "Sum"
+          ]
+        }
+      ],
+      "title": "SpilloverCount",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": "cloudwatch",
+      "description": "[HTTP listener] The number of HTTP response codes generated by registered instances. This count does not include any response codes generated by the load balancer.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "requests",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 54
+      },
+      "id": 7,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "targets": [
+        {
+          "alias": "{{LoadBalancerName}} sum",
+          "dimensions": {
+            "LoadBalancerName": "$elb"
+          },
+          "expression": "",
+          "id": "",
+          "matchExact": true,
+          "metricName": "HTTPCode_Backend_5XX",
+          "namespace": "AWS/ELB",
+          "period": "",
+          "queryType": "randomWalk",
+          "refId": "A",
+          "region": "default",
+          "statistics": [
+            "Sum"
+          ]
+        }
+      ],
+      "title": "HTTPCode_Backend_5XX",
+      "transparent": true,
+      "type": "timeseries"
+    },
+    {
+      "datasource": "cloudwatch",
+      "description": "[HTTP listener] The number of HTTP 5XX server error codes generated by the load balancer. This count does not include any response codes generated by the registered instances. The metric is reported if there are no healthy instances registered to the load balancer, or if the request rate exceeds the capacity of the instances (spillover) or the load balancer.",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "requests",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "short"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 24,
+        "x": 0,
+        "y": 63
+      },
+      "id": 8,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "targets": [
+        {
+          "alias": "{{LoadBalancerName}} sum",
+          "dimensions": {
+            "LoadBalancerName": "$elb"
+          },
+          "expression": "",
+          "id": "",
+          "matchExact": true,
+          "metricName": "HTTPCode_ELB_5XX",
+          "namespace": "AWS/ELB",
+          "period": "",
+          "queryType": "randomWalk",
+          "refId": "A",
+          "region": "default",
+          "statistics": [
+            "Sum"
+          ]
+        }
+      ],
+      "title": "HTTPCode_ELB_5XX",
+      "transparent": true,
+      "type": "timeseries"
+    }
+  ],
+  "schemaVersion": 30,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "allValue": null,
+        "current": {
+          "selected": false,
+          "text": "stormsvc-radius-accounting-prod",
+          "value": "stormsvc-radius-accounting-prod"
+        },
+        "datasource": "cloudwatch",
+        "definition": "dimension_values(us-east-1, AWS/ELB, HealthyHostCount, LoadBalancerName)",
+        "description": null,
+        "error": null,
+        "hide": 0,
+        "includeAll": false,
+        "label": null,
+        "multi": false,
+        "name": "elb",
+        "options": [],
+        "query": "dimension_values(us-east-1, AWS/ELB, HealthyHostCount, LoadBalancerName)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 5,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-7d",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "AWS ELB",
+  "uid": "cloudwatch-elb",
+  "version": 1
+}

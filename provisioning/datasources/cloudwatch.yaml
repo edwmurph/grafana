@@ -1,0 +1,9 @@
+apiVersion: 1
+
+datasources:
+  - name: cloudwatch
+    type: cloudwatch
+    jsonData:
+      # https://grafana.com/docs/grafana/latest/datasources/cloudwatch/#configure-the-data-source-with-provisioning
+      authType: default
+      defaultRegion: us-east-1

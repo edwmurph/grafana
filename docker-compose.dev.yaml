@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  grafana:
+    image: grafana
+    restart: always
+    init: true
+    build:
+      context: ./
+    logging:
+      options:
+        max-size: 50m
+    ports:
+      - 3000:3000
+    env_file:
+      - compose.env
+    environment:
+      AWS_DEFAULT_REGION: us-east-1
+      AWS_PROFILE: ${AWS_PROFILE-default}
+      GF_AUTH_ANONYMOUS_ORG_ROLE: Admin
+    volumes:
+      - $HOME/.aws/:/usr/share/grafana/.aws/
